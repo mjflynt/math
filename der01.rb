@@ -14,6 +14,10 @@ def der2(fp, f, h)
     ).curry[f, h]
 end
 
+def der3(f, h)
+    ->(f, h, x) { (f[x + h] - f[x]) / h }.curry[f, h]
+end
+
 d1 = der(:jeff0, ->(x) {x * x + x ** 0.5}, 0.0001)
 d2 = der(:jeff1, ->(x) {Math.sin(x)}, 0.000001)
  
@@ -24,4 +28,6 @@ d3 = der2(:jeff3, ->(x) {x ** 3}, 0.000001)
 
 p d3[1]
 
+d4 = der3(->(x) { x ** 4 }, 0.000001)
+p d4[2]
 
