@@ -19,6 +19,7 @@ class C
 
     def spawner
         counter = 0
+        
         def_meth :inc do
             counter += 1
         end
