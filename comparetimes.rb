@@ -1,5 +1,6 @@
 require "benchmark"
-CASES = 100_000_000
+
+CASES = 1_000_000_000
 
 class G 
     def initialize = @counter = 0
