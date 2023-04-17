@@ -32,6 +32,9 @@ class C
             repeat.times { counter += 1}
         end
     end
+
+    private :spawner
+
 end
 
 class I
@@ -79,3 +82,14 @@ print "global var ".ljust(25, '.')
 puts Benchmark.measure { i.incG } 
 print "local var ".ljust(25, '.')
 puts Benchmark.measure { i.incL }
+
+# ----------------------------------------------------------
+# -= With Closures =-
+# closure var ............. 55.954864   0.052237  56.007101 ( 56.634145)
+# global var .............. 42.073956   0.079851  42.153807 ( 42.305950)
+# closure var repeat ...... 26.723333   0.039993  26.763326 ( 26.824080)
+# global var repeat ....... 25.855879   0.023964  25.879843 ( 25.933207)
+
+# -= No Closures =-
+# global var .............. 25.878151   0.023964  25.902115 ( 25.963153)
+# local var ............... 25.794207   0.003986  25.798193 ( 25.829192)
